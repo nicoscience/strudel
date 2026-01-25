@@ -1,0 +1,20 @@
+// @BlueMonday
+
+setCpm (130/4)
+
+_$bass: n("<0@4 -1 -2 3@3 7>".add("<0 7>*8")).seg(16)
+  .scale("d:dorian").s("supersaw").detune(.3).clip(1)
+  .trans(-24).begin(0.9).lpf(200).lpenv(8).diode("2:.5")
+//.delay(rand).room(.8)
+
+_$pad: n("<0@4 -1 -2 3@3 7>*8".add("0,7,4").add(7))
+  .scale("d:dorian").s("supersaw").hpf(500).struct("<0 1>*8")
+  .detune(.4).lpa(3).gain(.6).vib(.01).o(5)
+  .trans(-24).begin(0.9).lpf(200).lpenv(4).diode("2:.5")
+
+$: s("bd").beat("0,4,8,12,16,20,24,28,29,30,31",32)
+  .slow(2).bank("tr909").diode("2:.5")
+  .duck("2:3:4:5").duckattack(.3).duckdepth(.4)
+    
+_$: s("sd").beat("3.95,11.9",16).bank("emudrumulator")
+  .room(.6).o(3).roomsize(5)
